@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head defines favicon, title on tab, and 'meta' stuff -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Legendary Roller</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+<style>
+#sidebar{
+	height: 100vh;
+	overflow: hidden;
+}
+body{
+	padding-bottom: 50px;
+}
+.navbar-fixed-bottom{
+	max-height: 30px;
+	overflow: hidden;
+}
+input[type=submit]{
+	background: #428bca;
+	height: 45px;
+	width: 180px;
+	border-style: double;
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<div class="container-fluid" align='center'>
+	<div class="row">
+		<div id='sidebar' class='hidden-xs col-sm-2 col-md-2 col-lg-2'><!--Hides ads on mobile phones-->
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Responsive Leg-Roller -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-7531960011897620"
+			     data-ad-slot="2901823460"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		<div class='col-xs-12 col-sm-10 col-md-10 col-lg-10'>
+			<img src='{{ url_for('static', filename='images/legendary_logo.png') }}' class='img-responsive' alt='logo'>
+			<h4>Choose an option and assemble your team</h4>
+			<div class='col-xs-12 col-sm-10 col-md-5 col-lg-5'>
+				{% from "_formhelper.html" import render_field %}
+				<form id="upload-form" method="POST" action="/results">
+					<dl>
+						{{render_field(form.num_play)}}
+					</dl>
+					<p><input type=submit value='Purely Random'></p>
+				</form>
+				</form>
+				<h2 class='hidden-xs'>What does the Random Roller Do?</h2>
+				<h3 class='hidden-xs'>Baddies</h3>
+				<ol class='hidden-xs'>
+					<li>Picks a Scheme at random</li>
+					<li>Picks a Mastermind at random</li>
+					<li>Picks a Villain at Random</li>
+					<li>If Villain is Spider-Infected or Doombot Legion it picks another random Villain</li>
+					<li>If the scheme is Dark Alliance or Secret Wars a second Mastermind is picked</li>
+					<li>Picks another Villain if 2 or more players</li>
+					<li>Picks another Villain if 3 or more players</li>
+					<li>Picks another Villain if 4 or more players</li>
+					<li>Picks a Henchmen if the first Villain is not Spider-Infected or Doombot Legion</li>
+					<li>Picks a Henchmen if 4 or more players</li>
+					<li>Picks a Henchmen depending on the Scheme</li>
+				</ol>
+				<br>
+				<h3 class='hidden-xs'>Heroes</h3>
+				<ol class='hidden-xs'>
+					<li>Picks four random Heroes</li>
+					<li>If two players and Scheme is 'Super Hero Civil War' picks another Hero</li>
+					<li>Pick another Hero if 5 players are playing</li>
+					<li>Number of Bystanders is set based on player count and/or Scheme</li>
+				</ol>
+			</div>
+			<div class='col-xs-12 col-sm-10 col-md-5 col-lg-5'>
+				{% from "_formhelper.html" import render_field %}
+				<form id="upload-form" method="POST" action="/ordered">
+					<dl>
+						{{render_field(form.num_play)}}
+					</dl>
+					<p><input type=submit value='Ordered Chaos'></p>
+				</form>
+				<h2 class='hidden-xs'>What does the Ordered Chaos Roller Do?</h2>
+				<h3 class='hidden-xs'>Baddies</h3>
+				<ol class='hidden-xs'>
+					<li>Picks a Scheme</li>
+					<li>Picks a Mastermind, the Villain they always lead, and the Hero they alwasy fight</li>
+					<li>Picks another Villain if the first is Spider-Infected or Doombot Legion</li>
+					<li>Picks another Mastermind if the Scheme is Dark Alliance or Secret Wars</li>
+					<li>If players are 2 or more picks another Villain and the Hero they always fight</li>
+					<li>If players are 3 or more picks another Vilain</li>
+					<li>If players are 4 or more picks another Villain</li>
+					<li>Picks Henchmen if first Villain is not Spider-Infected or Doombot Legion</li>
+					<li>Picks a Henchmen and the Hero they always fight</li>
+					<li>Picks a Henchmen depending on several Scheme conditions</li>
+				</ol>
+				<br>
+				<br>
+				<h3 class='hidden-xs'>Heroes</h3>
+				<ol class='hidden-xs'>
+					<li>Picks a random Hero</li>
+					<li>Picks another Hero if Scheme is Super Hero Civil War AND 2 players</li>
+					<li>If players are 5 picks another Hero</li>
+					<li>Chooses the number of Bystanders</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<nav class= 'navbar navbar-default navbar-fixed-bottom'>
+	<div class = 'container'>
+		<a class='navbar-text' href='/questions'> Created by Brett - Questions, Bugs, Legal</a>
+		<a href = 'https://boardgamegeek.com/article/25816503#25816503' target='_blank' class='navbar-btn btn-primary btn pull-right'> Visit us on BoardGameGeek.com</a>
+	</div>
+</nav>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69442301-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>

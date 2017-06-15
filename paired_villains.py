@@ -42,5 +42,3 @@ def paired_villains():
     elif baddie == 'Masters of Evil':
         hero = pick_avenger_tech()
     return (baddie, hero)
-
-print(paired_villains())

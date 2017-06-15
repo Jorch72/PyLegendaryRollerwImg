@@ -11,7 +11,7 @@ from baddies_spec import hench_no_rand
 from paired_villains import paired_villains
 
 app = Flask(__name__)
-#added through GIT
+
 num_players = [('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')]
 class Players(Form):
     num_play = SelectField(label = "Choose the Number of Players", choices = num_players)
@@ -101,8 +101,8 @@ def index():
                 pick_hench3 = None
 
             #Picks Four default heros
-	    samples = random.sample(pick_hero(), 5)
-	    hero_1, hero_1_att = samples[0]
+            samples = random.sample(pick_hero(), 5)
+            hero_1, hero_1_att = samples[0]
             hero_2, hero_2_att = samples[1]
             hero_3, hero_3_att = samples[2]
             hero_4, hero_4_att = samples[3]

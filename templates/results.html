@@ -142,6 +142,9 @@ overflow: hidden;
 				</form>
 			<h3>The Number of ByStanders is <strong>{{ bystand }}</strong><br>
 			The Scheme is: <strong>{{ pick_scheme }}</strong><br></h3>
+			<a href="{{ url_for('static', filename='schemes/%s.jpg' % pick_scheme) }}" data-toggle="lightbox">
+				<img class='img-sizing' src="{{ url_for('static', filename='schemes/%s.jpg' % pick_scheme) }}" alt = '{{ pick_scheme }}'>
+			</a><br><br>
 			<a class="btn btn-default" href="/" role="button">Return Home</a>
 		</div>
 

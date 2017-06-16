@@ -4,7 +4,7 @@ import random
 #Key is Hero: Value is icons provided
 team_avengers = {'Black Widow': 'Tech, Instinct', 'Captain America': 'Strength, Tech, Instinct, Covert', 'Captain America (Falcon)': 'Tech, Ranged, Instinct, Covert',
                 'Captain America 1941': 'Strength, Tech, Instinct, Covert', 'Captain America, Secret Avenger': 'Strength, Tech, Ranged, Instinct, Covert',
-                'Captain Marvel': 'Strength, Ranged', 'Cloack and Dagger': 'Ranged, Covert', 'Daredevil': 'Strength, Instinct, Covert', 'Falcon': 'Tech, Ranged, Instinct',
+                'Captain Marvel': 'Strength, Ranged', 'Cloak and Dagger': 'Ranged, Covert', 'Daredevil': 'Strength, Instinct, Covert', 'Falcon': 'Tech, Ranged, Instinct',
                 'Goliath': 'Strength, Tech', 'Hawkeye':	'Tech, Instinct', 'Hercules': 'Strength, Tech, Instinct', 'Hulk': 'Strength, Instinct', 'Hulkling': 'Strength, Covert',
                 'Iron Man': 'Tech, Ranged', 'Lady Thor': 'Tech, Ranged', 'Luke Cage': 'Strength, Instinct', 'Patriot': 'Strength, Tech, Instinct, Covert',
                 'Peter Parker': 'Tech, Instinct', 'Stature': 'Strength, Tech', 'The Captain and the Devil': 'Strength, Tech, Ranged, Instinct, Covert', 'Thor': 'Strength, Ranged',

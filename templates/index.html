@@ -123,8 +123,7 @@ input[type=submit]{
 			</div>
 			<div class='col-xs-12 col-sm-8 col-md-2 col-lg-2'>
 				<p><strong>Good vs Evil</strong></p><br><br>
-				<button type="button" class="btn btn-lg btn-primary" data-toggle="popover" title="Good vs. Evil Winrate"
-				data-placement="bottom" data-content="Graph coming soon!">Who's Winning?</button><br>
+				<button type="button" class="btn btn-lg btn-primary" data-toggle="popover" title="Good vs. Evil Winrate" data-placement="bottom">Who's Winning?</button><br>
 				<h3 class='hidden-xs'>Data: Explained</h3>
 				<p class='hidden-xs'>After each roll players are given the chance to vote on whether or not they setup was favorable to the heroes or the villains.
 					Clicking the button above shows the win rate site wide as experienced by all players!</p>
@@ -141,8 +140,29 @@ input[type=submit]{
 
 <!--Initilizes popovers -->
 <script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();
+$('[data-toggle="popover"]').popover({
+  html: true,
+  content: '<canvas id="myChart" width="600" height="600"></canvas>',
+}).on('shown.bs.popover', function() {
+
+  new Chart($('#myChart'), {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      datasets: [{
+        label: "My First dataset",
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [0, 10, 5, 2, 20, 30, 45],
+      }]
+    },
+
+    // Configuration options go here
+    options: {}
+  });
 });
 </script>
 

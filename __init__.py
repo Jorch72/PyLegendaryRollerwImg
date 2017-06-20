@@ -249,11 +249,14 @@ def index():
                     hero_5 = None
                     hero_5_att = None
 
+                my_hero_list_6 = []
                 #If players = 5 picks another hero
                 if int(num_play) == 5:
                     hero_6, hero_6_att = pick_hero()
                     hero_6_att = split_line(hero_6_att)
-                    
+                    hero_6_att.append(my_hero_list_6)
+                    hero_6_att = my_hero_list_6
+
                 else:
                     hero_6 = None
                     hero_6_att = None

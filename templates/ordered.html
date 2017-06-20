@@ -162,7 +162,7 @@ body{
 				 {% endif %}
 				 {% if hero_6 and hero_6_att != None %}
 				 The last hero is: <strong> {{ hero_6 }}</strong><br>
-				 with the attributes of: <strong> {{ hero_6_att }} </strong><br>
+				 with the attributes of: <strong> {{hero_6_att}} </strong><br>
 				 {% endif %}
 			<a href="{{ url_for('static', filename='heros/%s.jpg' % oppenent) }}" data-toggle="lightbox">
 				<img class='img-sizing' src="{{ url_for('static', filename='heros/%s.jpg' % oppenent) }}" alt = '{{ oppenent }}'>

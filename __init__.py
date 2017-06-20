@@ -12,6 +12,10 @@ from paired_villains import paired_villains
 
 app = Flask(__name__)
 
+def split_line(text):
+    # split the text
+    words = text.split()
+
 num_players = [('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')]
 class Players(Form):
     num_play = SelectField(label = "Choose the Number of Players", choices = num_players)
@@ -248,6 +252,8 @@ def index():
                 #If players = 5 picks another hero
                 if int(num_play) == 5:
                     hero_6, hero_6_att = pick_hero()
+                    hero_6_att = split_line(hero_6_att)
+                    
                 else:
                     hero_6 = None
                     hero_6_att = None

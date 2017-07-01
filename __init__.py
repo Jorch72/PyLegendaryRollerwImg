@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect, session, send_from_directory
 import random
 from flask_wtf import Form, FlaskForm
-from wtforms import Form, TextField, BooleanField, validators, PasswordField, SelectField
+from wtforms import Form, TextField, BooleanField, validators, PasswordField, SelectField, SubmitField
 #Imports from local files
 from goodies import pick_hero
 from schemes import schemes
@@ -288,10 +288,15 @@ def index():
         except Exception as e:
             return(str(e))
 
+class VoteHero(Form):
+    hero_button = SubmitField('Heroes Win!')
+    villain_button = SubmitField('Villains Win!')
+
 @app.route("/results", methods=["GET", "POST"])
 def results():
     try:
         form = Players(request.form)
+        voting = VoteHero(request.form)
 
         if request.method == "POST":
             num_play = form.num_play.data
@@ -406,7 +411,7 @@ def results():
             elif int(num_play) == 5:
                 bystand = 12
 
-            return render_template('results.html', form = form, pick_scheme = pick_scheme, pick_master = pick_master, alt_villain_text = alt_villain_text,
+            return render_template('results.html', voting = voting, form = form, pick_scheme = pick_scheme, pick_master = pick_master, alt_villain_text = alt_villain_text,
                                 pick_sidekick = pick_sidekick, pick_villain1 = pick_villain1, pick_villain2 = pick_villain2, alt_master2_text = alt_master2_text,
                                 pick_villain3 = pick_villain3, pick_hench1 = pick_hench1, pick_hench2 = pick_hench2, hero_1 = hero_1, hero_2 = hero_2, hero_3 = hero_3,
                                 villain2_text = villain2_text, villain3_text = villain3_text, pick_hench1_text = pick_hench1_text, hench2_text = hench2_text,
@@ -425,6 +430,7 @@ class OrderedPlay(Form):
 def ordered():
     try:
         form = OrderedPlay(request.form)
+        voting = VoteHero(request.form)
 
         if request.method == "POST":
             num_play = form.num_play.data
@@ -540,7 +546,7 @@ def ordered():
             elif int(num_play) == 5:
                 bystand = 12
 
-            return render_template('ordered.html', form = form, bystand = bystand, master1 = master1, who_led = who_led, alt_villain_text = alt_villain_text,
+            return render_template('ordered.html', voting = voting, form = form, bystand = bystand, master1 = master1, who_led = who_led, alt_villain_text = alt_villain_text,
                                 oppenent = oppenent, alt_villain = alt_villain, pick_master2 = pick_master2, pick_master2_text = pick_master2_text,
                                 pick_scheme = pick_scheme, scheme_hero = scheme_hero, scheme_attribute = scheme_attribute, pick_villain2_text = pick_villain2_text,
                                 pick_hench2 = pick_hench2, pick_hero_hench2 = pick_hero_hench2, pick_villain1 = pick_villain1, pick_hench1_text = pick_hench1_text,

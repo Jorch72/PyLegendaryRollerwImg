@@ -144,6 +144,10 @@ overflow: hidden;
 			The Scheme is: <strong>{{ pick_scheme }}</strong><br></h3>
 			<a href="{{ url_for('static', filename='schemes/%s.jpg' % pick_scheme) }}" data-toggle="lightbox">
 				<img class='img-sizing' src="{{ url_for('static', filename='schemes/%s.jpg' % pick_scheme) }}" alt = '{{ pick_scheme }}'>
+
+				<a href="{{ url_for('static', filename='Bystanders/%s.jpg' % bystand) }}" data-toggle="lightbox">
+					<img class='img-sizing' src="{{ url_for('static', filename='Bystanders/%s.jpg' % bystand) }}" alt = '{{ bystand }}'>
+
 			</a><br><br>
 			<a class="btn btn-default" href="/" role="button">Return Home</a>
 		</div>

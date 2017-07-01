@@ -127,6 +127,21 @@ body{
 		</div>
 
 		<div class='col-xs-12 col-sm-12 col-md-2 col-lg-2'>
+
+			{% from "_formhelper2.html" import render_field %}
+			<form id="voting" method="POST" action="#">
+				<dl>
+					{{render_field(voting.hero_button)}}
+				</dl>
+			</form>
+
+			{% from "_formhelper2.html" import render_field %}
+			<form id="voting" method="POST" action="#">
+				<dl>
+					{{render_field(voting.villain_button)}}
+				</dl>
+			</form>
+
 			<img class='img-sizing' src = 'http://vignette4.wikia.nocookie.net/deathbattlefanon/images/4/47/VS.png/revision/latest?cb=20150710201544' alt = 'vs'>
 				{% from "_formhelper.html" import render_field %}
 				<form id="upload-form" method="POST" action="/ordered">

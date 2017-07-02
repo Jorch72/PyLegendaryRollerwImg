@@ -129,16 +129,16 @@ body{
 		<div class='col-xs-12 col-sm-12 col-md-2 col-lg-2'>
 
 			{% from "_formhelper2.html" import render_field %}
-			<form id="voting" method="POST" action="#">
+			<form id="voting" method="POST">
 				<dl>
-					{{render_field(voting.hero_button)}}
+					{{render_field(voting_form.hero_button)}}
 				</dl>
 			</form>
 
 			{% from "_formhelper2.html" import render_field %}
 			<form id="voting" method="POST" action="#">
 				<dl>
-					{{render_field(voting.villain_button)}}
+					{{render_field(voting_form.villain_button)}}
 				</dl>
 			</form>
 

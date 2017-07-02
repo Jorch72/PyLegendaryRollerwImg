@@ -60,6 +60,7 @@ overflow: hidden;
 <div class="container-fluid vertical-center" align='center'>
 	<div class='row'>
 		<div class='col-xs-12 col-sm-12 col-md-5 col-lg-5'>
+			{{ vote_good }}
 			<p> The Master mind is: <strong>{{ pick_master }}</strong><br>
 					Their counterpart is: <strong>{{ pick_sidekick }}</strong><br>
 					{% if pick_master2 != None %}
@@ -133,16 +134,16 @@ overflow: hidden;
 
 		<div class='col-xs-12 col-sm-12 col-md-2 col-lg-2'>
 			{% from "_formhelper2.html" import render_field %}
-			<form id="voting" method="POST" action="#">
+			<form id="voting" method="POST">
 				<dl>
-					{{render_field(voting.hero_button)}}
+					{{render_field(voting_form.hero_button)}}
 				</dl>
 			</form>
 
 			{% from "_formhelper2.html" import render_field %}
 			<form id="voting" method="POST" action="#">
 				<dl>
-					{{render_field(voting.villain_button)}}
+					{{render_field(voting_form.villain_button)}}
 				</dl>
 			</form>
 

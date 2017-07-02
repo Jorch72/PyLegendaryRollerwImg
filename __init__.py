@@ -9,6 +9,7 @@ from baddies import masterminds, henchmen, villains
 from paired_baddies import bad_pair
 from baddies_spec import hench_no_rand
 from paired_villains import paired_villains
+import pymysql.cursors
 
 app = Flask(__name__)
 
@@ -292,14 +293,34 @@ class VoteHero(Form):
     hero_button = SubmitField('Heroes Win!')
     villain_button = SubmitField('Villains Win!')
 
+#MySQL Commands
+def vote_hero():
+    conn = pymysql.connect(host='legendarydb.cnmjscz500v8.us-east-1.rds.amazonaws.com', user='jouwstrab', passwd='Asl33p12!', db='legendaryroller')
+    try:
+        with conn.cursor() as cursor:
+            sql = "SELECT `hero` FROM `voting` WHERE `counter`=%s"
+            cursor.execute(sql, ('first'))
+            result = cursor.fetchall()
+            print(result)
+            #result = result + 1
+
+        # with conn.cursor() as cursor:
+        #     sql = "UPDATE `voting` SET `hero`=%s WHERE `counter`=%s"
+        #     cursor.execute(sql, ('result', '1'))
+        #     conn.commit()
+    finally:
+        conn.close()
+
 @app.route("/results", methods=["GET", "POST"])
 def results():
     try:
         form = Players(request.form)
-        voting = VoteHero(request.form)
+        voting_form = VoteHero(request.form)
 
         if request.method == "POST":
             num_play = form.num_play.data
+
+            vote_good = vote_hero()
 
             pick_scheme, scheme_hero, scheme_att = schemes()
 
@@ -411,7 +432,7 @@ def results():
             elif int(num_play) == 5:
                 bystand = 12
 
-            return render_template('results.html', voting = voting, form = form, pick_scheme = pick_scheme, pick_master = pick_master, alt_villain_text = alt_villain_text,
+            return render_template('results.html', vote_good = vote_good, voting_form = voting_form, form = form, pick_scheme = pick_scheme, pick_master = pick_master, alt_villain_text = alt_villain_text,
                                 pick_sidekick = pick_sidekick, pick_villain1 = pick_villain1, pick_villain2 = pick_villain2, alt_master2_text = alt_master2_text,
                                 pick_villain3 = pick_villain3, pick_hench1 = pick_hench1, pick_hench2 = pick_hench2, hero_1 = hero_1, hero_2 = hero_2, hero_3 = hero_3,
                                 villain2_text = villain2_text, villain3_text = villain3_text, pick_hench1_text = pick_hench1_text, hench2_text = hench2_text,
@@ -430,7 +451,7 @@ class OrderedPlay(Form):
 def ordered():
     try:
         form = OrderedPlay(request.form)
-        voting = VoteHero(request.form)
+        voting_form = VoteHero(request.form)
 
         if request.method == "POST":
             num_play = form.num_play.data
@@ -546,7 +567,7 @@ def ordered():
             elif int(num_play) == 5:
                 bystand = 12
 
-            return render_template('ordered.html', voting = voting, form = form, bystand = bystand, master1 = master1, who_led = who_led, alt_villain_text = alt_villain_text,
+            return render_template('ordered.html', voting_form = voting_form, form = form, bystand = bystand, master1 = master1, who_led = who_led, alt_villain_text = alt_villain_text,
                                 oppenent = oppenent, alt_villain = alt_villain, pick_master2 = pick_master2, pick_master2_text = pick_master2_text,
                                 pick_scheme = pick_scheme, scheme_hero = scheme_hero, scheme_attribute = scheme_attribute, pick_villain2_text = pick_villain2_text,
                                 pick_hench2 = pick_hench2, pick_hero_hench2 = pick_hero_hench2, pick_villain1 = pick_villain1, pick_hench1_text = pick_hench1_text,

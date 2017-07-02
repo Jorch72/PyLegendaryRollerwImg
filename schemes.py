@@ -5,7 +5,7 @@ from goodies import pick_hero
 def schemes():
     schemes = ['Brainwash the Military', 'Weave a Web of Lies', 'The Unbreakable Enigma Code', 'Change the Outcome of WWII',
             'The Clone Saga', 'Pan-Dimensional Plague', 'Steal the Weaponized Plutonium','Capture Baby Hope',
-            'Massive Earthquake Generator', 'Super Hero Civil War', "Replace Earth's Leaders with Killbots",
+            'Massive Earthquake Generator', 'Super Hero Civil War', "Replace the Earth's Leaders with Killerbots",
             'Midtown Bank Robbery', 'Smash Two Dimensions Together', 'Dark Alliance', 'Corrupt the Next Generation of Heroes',
             'Enthrone the Barons of Battleworld', 'Deadlands Hordes Charge the Wall', 'Master the Mysteries of Kung-Fu',
             'Secret Wars', 'Sinister Ambitions', 'The God-Emperor of Battleworld', 'Predict Future Crime', 'Nitro the Supervillain Threatens Crowds',

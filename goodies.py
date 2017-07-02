@@ -4,7 +4,7 @@ import random
 #Key is Hero: Value is icons provided
 team_avengers = {'Black Widow': 'Tech, Instinct', 'Captain America': 'Strength, Tech, Instinct, Covert', 'Captain America (Falcon)': 'Tech, Ranged, Instinct, Covert',
                 'Captain America 1941': 'Strength, Tech, Instinct, Covert', 'Captain America, Secret Avenger': 'Strength, Tech, Ranged, Instinct, Covert',
-                'Captain Marvel': 'Strength, Ranged', 'Cloak and Dagger': 'Ranged, Covert', 'Daredevil': 'Strength, Instinct, Covert', 'Falcon': 'Tech, Ranged, Instinct',
+                'Captain Marvel': 'Strength, Ranged', 'Cloak and Dagger': 'Ranged, Covert', 'Daredevil (Civil War)': 'Strength, Instinct, Covert', 'Falcon': 'Tech, Ranged, Instinct',
                 'Goliath': 'Strength, Tech', 'Hawkeye':	'Tech, Instinct', 'Hercules': 'Strength, Tech, Instinct', 'Hulk': 'Strength, Instinct', 'Hulkling': 'Strength, Covert',
                 'Iron Man': 'Tech, Ranged', 'Lady Thor': 'Tech, Ranged', 'Luke Cage': 'Strength, Instinct', 'Patriot': 'Strength, Tech, Instinct, Covert',
                 'Peter Parker': 'Tech, Instinct', 'Stature': 'Strength, Tech', 'The Captain and the Devil': 'Strength, Tech, Ranged, Instinct, Covert', 'Thor': 'Strength, Ranged',
@@ -36,19 +36,19 @@ team_illuminati = {'Beast': 'Strength, Tech', 'Black Bolt': 'Strength, Ranged, C
 
 
 
-team_marvelknights = {'Blade': 'Strength, Tech, Instinct, Covert', 'Daredevil': 'Strength, Tech, Instinct, Covert', 'Dr. Punisher, The Soldier Supreme': 'Tech, Ranged',
+team_marvelknights = {'Blade': 'Strength, Tech, Instinct, Covert', 'Daredevil (Dark City)': 'Strength, Tech, Instinct, Covert', 'Dr. Punisher, The Soldier Supreme': 'Tech, Ranged',
                     'Elektra': 'Instinct, Covert', 'Ghost Rider': 'Strength, Tech, Ranged', 'Iron Fist': 'Strength, Instinct', 'Moon Knight': 'Tech, Instinct',
-                    'Punisher': 'Strength, Tech', 'Shang-Chi': 'Instinct, Covert'}
+                    'The Punisher': 'Strength, Tech', 'Shang-Chi': 'Instinct, Covert'}
 
 
 
-team_mercs = {'Deadpool': 'Strength, Tech, Instinct, Covert', 'Slapstick': 'Strength, Ranged', 'Solo': 'Tech, Instinct', 'Stingray': 'Tech, Ranged'}
+team_mercs = {'Deadpool (Deadpool)': 'Strength, Tech, Instinct, Covert', 'Slapstick': 'Strength, Ranged', 'Solo': 'Tech, Instinct', 'Stingray': 'Tech, Ranged'}
 
 
 team_newwarriors = {'Speedball': 'Ranged, Covert'}
 
 team_shield = {'Agent X-13': 'Tech, Ranged, Instinct, Covert', 'Elsa Bloodstone': 'Strength, Tech, Ranged, Instinct, Covert', 'Nick Fury': 'Strength, Tech, Covert',
-            'Steve Rodgers, Director of S.H.I.E.L.D': 'Strength, Tech, Instinct, Covert'}
+            'Steve Rodgers, Director of S.H.I.E.L.D.': 'Strength, Tech, Instinct, Covert'}
 
 
 
@@ -57,19 +57,19 @@ team_spiderfriends = {'Agent Venom': 'Strength, Tech, Instinct', 'Black Cat': 'I
                     'Symbiote Spider-Man': 'Strength, Ranged, Instinct, Covert', 'Ultimate Spider-Man': 'Strength, Tech, Instinct, Covert'}
 
 
-team_unaffiliated = {'Arkon The Magnificent': 'Strength, Ranged, Instinct, Covert', 'Deadpool': 'Tech, Instinct, Covert',
+team_unaffiliated = {'Arkon The Magnificent': 'Strength, Ranged, Instinct, Covert', 'Deadpool (Core)': 'Tech, Instinct, Covert',
                     'Silver Surfer': 'Strength, Ranged, Covert', 'Winter Soldier': 'Strength, Tech, Covert'}
 
 
-team_xforce = {'Cable': 'Tech, Ranged, Covert', 'Colossus': 'Strength, Covert', 'Domino': 'Tech, Instinct, Covert', 'Forge': 'Tech', 'Wolverine': 'Strength, Instinct, Covert'}
+team_xforce = {'Cable': 'Tech, Ranged, Covert', 'Colossus': 'Strength, Covert', 'Domino': 'Tech, Instinct, Covert', 'Forge': 'Tech', 'Wolverine (Dark City)': 'Strength, Instinct, Covert'}
 
 
 
 team_xmen = {'Angel': 'Strength, Instinct, Covert', 'Apocalyptic Kitty Pryde': 'Tech, Covert', 'Bishop': 'Tech, Ranged, Covert', 'Cyclops': 'Strength, Ranged',
             'Emma Frost': 'Strength, Ranged, Instinct, Covert', 'Gambit': 'Ranged, Instinct, Covert', 'Iceman': 'Strength, Ranged', 'Jean Grey': 'Ranged, Covert',
-            'Magik': 'Ranged, Covert', 'Nightcrawler': 'Instinct, Covert', 'Old Man Logan': 'Instinct, Covert', 'Phoeix Force Cyclops': 'Ranged, Instinct, Covert',
+            'Magik': 'Ranged, Covert', 'Nightcrawler': 'Instinct, Covert', 'Old Man Logan': 'Instinct, Covert', 'Phoenix Force Cyclops': 'Ranged, Instinct, Covert',
             'Professor X': 'Ranged, Instinct, Covert', 'Rogue': 'Strength, Covert', 'Ruby Summers': 'Strenght, Ranged', 'Soulsword Colossus': 'Strength, Instinct, Covert',
-            'Storm': 'Ranged, Covert', 'Time-Traveling Jean Grey': 'Ranged, Instinct, Covert', 'Wolverine': 'Instinct'}
+            'Storm': 'Ranged, Covert', 'Time-Traveling Jean Grey': 'Ranged, Instinct, Covert', 'Wolverine (Core)': 'Instinct'}
 
 # #Function to pick a hero
 def pick_hero():

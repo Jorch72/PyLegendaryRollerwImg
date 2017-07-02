@@ -21,9 +21,9 @@ def villains():
     villains = ['Heralds of Galactus', 'Kree Starforce', 'Infinity Gems', 'Subterranea', 'The Deadlands', 'Limbo', 'Wasteland',
             'Sentinel Territories', 'Utopolis', 'Monster Metropolis', "K'un-Lun", 'Registration Enforcers', 'S.H.I.E.L.D. Elite',
             'Heroes for Hire', 'Superhuman Registration Act', 'Thunderbolts', 'Masters of Evil (WWII)', "Zola's Creations",
-            'Maximum Carnage', 'Sinister Six', 'Evil Deadpool Corpse', 'Brotherhood', 'HYDRA',
-            'Enemies of Asgard', 'Underworld', 'MLF', 'Four Horsemen', 'Marauders', 'Streets of New York', 'CSA Special Marshals',
+            'Maximum Carnage', 'Sinister Six', 'Evil Deadpool Corpse', 'HYDRA',
+            'Enemies of Asgard', 'Underworld', 'MLF', 'Four Horsemen', 'Marauders', 'Streets of New York',
             'Great Lakes Avengers', "Deadpool's Secret Secret Wars", "X-Men '92", 'Guardians of Knowhere', 'Domain of Apocalypse',
-            'Manhattan (Earth-1610)', 'Emissaries', 'Radiation', 'Skrulls', 'Spider-Foes', 'Masters of Evil']
+            'Manhattan (Earth-1610)', 'Radiation', 'Skrulls', 'Spider-Foes', 'Masters of Evil']
     villains = random.choice(villains)
     return villains

@@ -301,29 +301,33 @@ def villains_win():
 def vote_hero():
     conn = pymysql.connect(host='legendarydb.cnmjscz500v8.us-east-1.rds.amazonaws.com', user='jouwstrab', passwd='Asl33p12!', db='legendaryroller')
     try:
-        if request.method == "POST":
-            with conn.cursor() as cursor:
-                sql = "INSERT INTO `voting` (`hero`) VALUES (%s)"
-                cursor.execute(sql, (1))
-                conn.commit()
-                conn.close()
+        with conn.cursor() as cursor:
+            sql = "SELECT `hero`, `villain` FROM `voting` WHERE `holder`=%s"
+            cursor.execute(sql, ('default'))
+            result = cursor.fetchone()
+            result = result[0] + 1
+            sql = "UPDATE `voting` SET `hero`=%s WHERE `holder`=%s"
+            cursor.execute(sql, (result, 'default'))
+            conn.commit()
+    finally:
+        conn.close()
         return redirect(url_for('heroes_win'))
-    except Exception as e:
-        return(str(e))
 
 @app.route("/vote_villain_page", methods=["GET", "POST"])
 def vote_villain():
     conn = pymysql.connect(host='legendarydb.cnmjscz500v8.us-east-1.rds.amazonaws.com', user='jouwstrab', passwd='Asl33p12!', db='legendaryroller')
     try:
-        if request.method == "POST":
-            with conn.cursor() as cursor:
-                sql = "INSERT INTO `voting` (`villain`) VALUES (%s)"
-                cursor.execute(sql, (1))
-                conn.commit()
-                conn.close()
+        with conn.cursor() as cursor:
+            sql = "SELECT `hero`, `villain` FROM `voting` WHERE `holder`=%s"
+            cursor.execute(sql, ('default'))
+            result = cursor.fetchone()
+            result = result[1] + 1
+            sql = "UPDATE `voting` SET `villain`=%s WHERE `holder`=%s"
+            cursor.execute(sql, (result, 'default'))
+            conn.commit()
+    finally:
+        conn.close()
         return redirect(url_for('villains_win'))
-    except Exception as e:
-        return(str(e))
 
 @app.route("/results", methods=["GET", "POST"])
 def results():

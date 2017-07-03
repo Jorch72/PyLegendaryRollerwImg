@@ -325,7 +325,7 @@ def vote_hero():
             conn.commit()
     finally:
         conn.close()
-        return redirect(url_for('heroes_win'))
+        return redirect(url_for('index'))
 
 @app.route("/vote_villain_page", methods=["GET", "POST"])
 def vote_villain():
@@ -341,7 +341,7 @@ def vote_villain():
             conn.commit()
     finally:
         conn.close()
-        return redirect(url_for('villains_win'))
+        return redirect(url_for('index'))
 
 @app.route("/results", methods=["GET", "POST"])
 def results():

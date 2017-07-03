@@ -128,18 +128,12 @@ body{
 
 		<div class='col-xs-12 col-sm-12 col-md-2 col-lg-2'>
 
-			{% from "_formhelper2.html" import render_field %}
-			<form id="voting" method="POST">
-				<dl>
-					{{render_field(voting_form.hero_button)}}
-				</dl>
+			<form id="voting" method="POST" action="/vote_hero_page">
+				<p><input type=submit value='Heroes Win!'></p>
 			</form>
 
-			{% from "_formhelper2.html" import render_field %}
-			<form id="voting" method="POST" action="#">
-				<dl>
-					{{render_field(voting_form.villain_button)}}
-				</dl>
+			<form id="voting_two" method="POST" action="/vote_villain_page">
+				<p><input type=submit value='Villains Win!'></p>
 			</form>
 
 			<img class='img-sizing' src = 'http://vignette4.wikia.nocookie.net/deathbattlefanon/images/4/47/VS.png/revision/latest?cb=20150710201544' alt = 'vs'>

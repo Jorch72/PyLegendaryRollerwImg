@@ -17,6 +17,19 @@ def split_line(text):
     # split the text
     words = text.split()
 
+def rate_stats():
+    conn = pymysql.connect(host='legendarydb.cnmjscz500v8.us-east-1.rds.amazonaws.com', user='jouwstrab', passwd='Asl33p12!', db='legendaryroller')
+    try:
+        with conn.cursor() as cursor:
+            sql = "SELECT `hero`, `villain` FROM `voting` WHERE `holder`=%s"
+            cursor.execute(sql, ('default'))
+            result = cursor.fetchone()
+            hero_rate = result[0]
+            villain_rate = result[1]
+    finally:
+        conn.close()
+        return (villain_rate, hero_rate)
+
 num_players = [('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')]
 class Players(Form):
     num_play = SelectField(label = "Choose the Number of Players", choices = num_players)
@@ -26,6 +39,7 @@ class Playing(Form):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    hero_rate, villain_rate = rate_stats()
     try:
         form = Players(request.form)
 
@@ -150,7 +164,7 @@ def index():
                                 hench3_text = hench3_text, hero5_text = hero5_text, hero6_text = hero6_text, hero_1_att = hero_1_att, hero_2_att = hero_2_att,
                                 hero_3_att = hero_3_att, hero_4_att = hero_4_att, hero_5_att = hero_5_att, hero_6_att = hero_6_att,
                                 hero_4 = hero_4, bystand = bystand, hero_5 = hero_5, hero_6 = hero_6, pick_master2 = pick_master2, pick_hench3 = pick_hench3, alt_villain = alt_villain)
-        return render_template('index.html', form = form)
+        return render_template('index.html', form = form, hero_rate = hero_rate, villain_rate = villain_rate)
     except Exception as e:
         return(str(e))
 
@@ -285,7 +299,7 @@ def index():
                                     hero_6 = hero_6, pick_hench2_hero_text = pick_hench2_hero_text, pick_hench2_text = pick_hench2_text, pick_hench3_text = pick_hench3_text,
                                     oppenent_att = oppenent_att, vill_hero1_att = vill_hero1_att, hero_4_att = hero_4_att, hero_5_text = hero_5_text, hero_5_att = hero_5_att,
                                     hero_6_att = hero_6_att)
-            return render_template('index.html', form = form)
+            return render_template('index.html', form = form, hero_rate = hero_rate, villain_rate = villain_rate)
         except Exception as e:
             return(str(e))
 

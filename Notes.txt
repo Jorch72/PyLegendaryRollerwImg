@@ -1,0 +1,5 @@
+import sys
+
+sys.path.append("/var/www/FlaskApp/FlaskApp")
+
+The above may be necessary if local imports are failing on the webserver. The system doesn't necessarily 'know' the script is running in its' PWD

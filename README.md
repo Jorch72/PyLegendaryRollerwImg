@@ -10,6 +10,7 @@ Random chooses any combination with little regard to the necessary win condition
 
 Ordered chooses combinations that are feasible and allow the player the possibility of winning based on attributes required etc.
 
+As of July 3rd, 2017 there is a DB connection to track the number of times Heroes and Villains as reported by the community. After each game players can select either "Hero Win" or "Villain Win" and it will record the data and display it in a pie chart on the homepage. 
 
 Community discussion is happening on BoardGameGeek and Reddit
 

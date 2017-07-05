@@ -30,6 +30,26 @@ def rate_stats():
         conn.close()
         return (villain_rate, hero_rate)
 
+#Splits the hero attributes into seperate words
+def splitting(my_value):
+    splitter = my_value.split()
+
+    length = len(splitter)
+    if length == 1:
+        return(splitter[0])
+
+    if length == 2:
+        return(splitter[0], splitter[1])
+
+    if length == 3:
+        return(splitter[0], splitter[1], splitter[2])
+
+    if length == 4:
+        return(splitter[0], splitter[1], splitter[2], splitter[3])
+
+    if length == 5:
+        return(splitter[0], splitter[1], splitter[2], splitter[3], splitter[4])
+
 num_players = [('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')]
 class Players(Form):
     num_play = SelectField(label = "Choose the Number of Players", choices = num_players)
@@ -120,9 +140,7 @@ def index():
                 pick_hench3 = None
 
             #Picks Four default heros
-            samples = random.sample(pick_hero(), 5)
             hero_1, hero_1_att = samples[0]
-            splitter1 = hero_1_att.split()
             hero_2, hero_2_att = samples[1]
             hero_3, hero_3_att = samples[2]
             hero_4, hero_4_att = samples[3]
@@ -427,25 +445,34 @@ def results():
 
             #Picks Four default heros
             hero_1, hero_1_att = pick_hero()
+            h1a = splitting(hero_1_att)
             hero_2, hero_2_att = pick_hero()
+            h2a = splitting(hero_2_att)
             hero_3, hero_3_att = pick_hero()
+            h3a = splitting(hero_3_att)
             hero_4, hero_4_att = pick_hero()
+            h4a = splitting(hero_4_att)
 
             # #If more than 2 players and scheme is Super hero Civil War picks another hero
             hero5_text = 'The fifth hero is:'
             if int(num_play) == 2 and pick_scheme == 'Super Hero Civil War':
                 hero_5, hero_5_att = pick_hero()
+                h5a = splitting(hero_5_att)
             else:
                 hero_5 = None
                 hero_5_att = None
+                h5a = None
 
             #If players = 5 picks another hero
             hero6_text = 'The last hero is:'
             if int(num_play) == 5:
                 hero_6, hero_6_att = pick_hero()
+                h6a = splitting(hero_6_att)
+
             else:
                 hero_6 = None
                 hero_6_att = None
+                h6a = None
 
             # #Sets the number of Bystanders
             bystand = 0
@@ -462,7 +489,7 @@ def results():
             elif int(num_play) == 5:
                 bystand = 12
 
-            return render_template('results.html', form = form, pick_scheme = pick_scheme, pick_master = pick_master, alt_villain_text = alt_villain_text,
+            return render_template('results.html',h6a = h6a, h5a = h5a, h4a = h4a, h3a = h3a, h2a = h2a, h1a = h1a, form = form, pick_scheme = pick_scheme, pick_master = pick_master, alt_villain_text = alt_villain_text,
                                 pick_sidekick = pick_sidekick, pick_villain1 = pick_villain1, pick_villain2 = pick_villain2, alt_master2_text = alt_master2_text,
                                 pick_villain3 = pick_villain3, pick_hench1 = pick_hench1, pick_hench2 = pick_hench2, hero_1 = hero_1, hero_2 = hero_2, hero_3 = hero_3,
                                 villain2_text = villain2_text, villain3_text = villain3_text, pick_hench1_text = pick_hench1_text, hench2_text = hench2_text,
@@ -486,9 +513,11 @@ def ordered():
             num_play = form.num_play.data
 
             pick_scheme, scheme_hero, scheme_attribute = schemes()
+            s1a = splitting(scheme_attribute)
 
             master1, who_led, oppenent = bad_pair()
             oppenent, oppenent_att = oppenent
+            o1a = splitting(oppenent_att)
 
             #Picks another Villain based on sidekick value
             alt_villain_text = 'Spider-Infected or Doombot Legion Rolled, Villain is:'
@@ -512,6 +541,7 @@ def ordered():
             if int(num_play) > 1:
                 pick_villain1, vill_hero1 = paired_villains()
                 vill_hero1, vill_hero1_att = vill_hero1
+                vh1 = splitting(vill_hero1_att)
 
             #Picks a second Villain if more than 2 players
             pick_villain2_text = 'Villain Three is:'
@@ -542,10 +572,12 @@ def ordered():
             if int(num_play) > 3:
                 pick_hench2, pick_hero_hench2 = hench_no_rand()
                 pick_hero_hench2, pick_hero_hench2_att = pick_hero_hench2
+                hh1 = splitting(pick_hero_hench2_att)
             elif int(num_play) <= 3:
                 pick_hench2 = None
                 pick_hero_hench2 = None
                 pick_hero_hench2_att = None
+                hh1 = None
 
             #Picks the 3rd henchman depending on conditions
             pick_hench3_text = 'Last Henchmen is:'
@@ -565,22 +597,27 @@ def ordered():
             #Picks Four default heros
             hero_4 = pick_hero()
             hero_4, hero_4_att = hero_4
+            ph4 = splitting(hero_4_att)
 
             # #If more than 2 players and scheme is Super hero Civil War picks another hero
             hero_5_text = 'The fifth hero is:'
             if int(num_play) == 2 and pick_scheme == 'Super Hero Civil War':
                 hero_5 = pick_hero()
                 hero_5, hero_5_att = hero_5
+                h5a = splitting(hero_5_att)
             else:
                 hero_5 = None
                 hero_5_att = None
+                h5a = None
 
             #If players = 5 picks another hero
             if int(num_play) == 5:
                 hero_6, hero_6_att = pick_hero()
+                h6a = splitting(hero_6_att)
             else:
                 hero_6 = None
                 hero_6_att = None
+                h6a = None
 
             bystand = 0
             if pick_scheme == "Replace Earth's Leaders with Killbots":
@@ -596,7 +633,7 @@ def ordered():
             elif int(num_play) == 5:
                 bystand = 12
 
-            return render_template('ordered.html', form = form, bystand = bystand, master1 = master1, who_led = who_led, alt_villain_text = alt_villain_text,
+            return render_template('ordered.html', h6a = h6a, h5a = h5a, ph4 = ph4, hh1 = hh1, vh1 = vh1, s1a = s1a, o1a = o1a, form = form, bystand = bystand, master1 = master1, who_led = who_led, alt_villain_text = alt_villain_text,
                                 oppenent = oppenent, alt_villain = alt_villain, pick_master2 = pick_master2, pick_master2_text = pick_master2_text,
                                 pick_scheme = pick_scheme, scheme_hero = scheme_hero, scheme_attribute = scheme_attribute, pick_villain2_text = pick_villain2_text,
                                 pick_hench2 = pick_hench2, pick_hero_hench2 = pick_hero_hench2, pick_villain1 = pick_villain1, pick_hench1_text = pick_hench1_text,

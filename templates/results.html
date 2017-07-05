@@ -166,21 +166,33 @@ overflow: hidden;
 
 		<div class='col-xs-12 col-sm-12 col-md-5 col-lg-5'>
 			<p> The first hero is: <strong> {{ hero_1 }}</strong><br>
-					with the attributes of: <strong> {{ hero_1_att }}</strong><br>
+					with the attributes of: {% for item in h1a %} <strong> {{item}}</strong>
+					<img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
+
 			    The second hero is: <strong> {{ hero_2 }}</strong><br>
-					with the attributes of: <strong> {{ hero_2_att }}</strong><br>
+					with the attributes of: {% for item in h2a %} <strong> {{item}}</strong>
+					<img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
+
 			    The third hero is: <strong> {{ hero_3 }}</strong><br>
-					with the attributes of: <strong> {{ hero_3_att }}</strong><br>
+					with the attributes of: {% for item in h3a %} <strong> {{item}}</strong>
+					<img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
+
 			    The fourth hero is: <strong> {{ hero_4 }}</strong><br>
-					with the attributes of: <strong> {{ hero_4_att }}</strong><br>
+					with the attributes of: {% for item in h4a %} <strong> {{item}}</strong>
+					<img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
+
 					{% if hero_5 and hero_5_att != None %}
 			    {{ hero5_text }} <strong> {{ hero_5 }}</strong><br>
-					with the attributes of: <strong> {{ hero_5_att }}</strong>
+					with the attributes of: {% for item in h5a %} <strong> {{item}}</strong>
+					<img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
 					{% endif %}
+
 					{% if hero_6 and hero_6_att != None %}
 			    {{ hero6_text }} <strong> {{ hero_6 }}</strong><br>
-					with the attributes of: <strong>{{ hero_6_att }}</strong><br>
+					with the attributes of: {% for item in h6a %} <strong> {{item}}</strong>
+					<img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}
 					{% endif %}</p>
+
 				<a href="{{ url_for('static', filename='heros/%s.jpg' % hero_1) }}" data-toggle="lightbox">
 				 <img class='img-sizing' src="{{ url_for('static', filename='heros/%s.jpg' % hero_1) }}" alt = '{{ hero_1 }}'>
 			 	</a>

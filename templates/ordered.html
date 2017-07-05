@@ -161,25 +161,39 @@ body{
 
 		<div class='col-xs-12 col-sm-12 col-md-5 col-lg-5'>
 			<p>The lead hero is: <strong> {{ oppenent }} </strong><br>
-				 with the attributes of: <strong>{{ oppenent_att }}</strong><br>
+				 with the attributes of: {% for item in o1a %} <strong> {{item}}</strong>
+				 <img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
+
 				 The next hero is: <strong> {{ scheme_hero }}</strong><br>
-				 with the attributes of: <strong> {{ scheme_attribute }}</strong><br>
+				 with the attributes of: {% for item in s1a %} <strong> {{item}}</strong>
+				 <img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
+
 				 The next hero is: <strong>{{ vill_hero1 }}</strong><br>
-				 with the atrributes of: <strong>{{ vill_hero1_att }}</strong><br>
+				 with the atrributes of: {% for item in vh1 %} <strong> {{item}}</strong>
+				 <img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
+
 				 {% if pick_hero_hench2 and pick_hero_hench2_att != None %}
 				 {{ pick_hench2_hero_text }} <strong> {{ pick_hero_hench2 }}</strong><br>
-				 with the attributes of: <strong>{{ pick_hero_hench2_att }}</strong><br>
+				 with the attributes of: {% for item in hh1 %} <strong> {{item}}</strong>
+				 <img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
 				 {% endif %}
+
 				 The next hero is: <strong>{{ hero_4 }}</strong><br>
-				 with the attributes of: <strong>{{ hero_4_att }}</strong><br>
+				 with the attributes of: {% for item in ph4 %} <strong> {{item}}</strong>
+				 <img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
+
 				 {% if hero_5 and hero_5_att != None %}
 				 The next hero is: <strong> {{ hero_5 }}</strong><br>
-				 with the attributes of: <strong>{{ hero_5_att }}</strong><br>
+				 with the attributes of: {% for item in h5a %} <strong> {{item}}</strong>
+				 <img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
 				 {% endif %}
+
 				 {% if hero_6 and hero_6_att != None %}
 				 The last hero is: <strong> {{ hero_6 }}</strong><br>
-				 with the attributes of: <strong> {{hero_6_att}} </strong><br>
+				 with the attributes of: {% for item in h6a %} <strong> {{item}}</strong>
+				 <img src="{{ url_for('static', filename='symbols/%s.png' % item) }}" alt = "{{ item }}"> {% endfor %}<br>
 				 {% endif %}
+
 			<a href="{{ url_for('static', filename='heros/%s.jpg' % oppenent) }}" data-toggle="lightbox">
 				<img class='img-sizing' src="{{ url_for('static', filename='heros/%s.jpg' % oppenent) }}" alt = '{{ oppenent }}'>
 			</a>

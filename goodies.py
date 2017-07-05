@@ -68,7 +68,7 @@ team_xforce = {'Cable': 'Tech, Ranged, Covert', 'Colossus': 'Strength, Covert', 
 team_xmen = {'Angel': 'Strength, Instinct, Covert', 'Apocalyptic Kitty Pryde': 'Tech, Covert', 'Bishop': 'Tech, Ranged, Covert', 'Cyclops': 'Strength, Ranged',
             'Emma Frost': 'Strength, Ranged, Instinct, Covert', 'Gambit': 'Ranged, Instinct, Covert', 'Iceman': 'Strength, Ranged', 'Jean Grey': 'Ranged, Covert',
             'Magik': 'Ranged, Covert', 'Nightcrawler': 'Instinct, Covert', 'Old Man Logan': 'Instinct, Covert', 'Phoenix Force Cyclops': 'Ranged, Instinct, Covert',
-            'Professor X': 'Ranged, Instinct, Covert', 'Rogue': 'Strength, Covert', 'Ruby Summers': 'Strenght, Ranged', 'Soulsword Colossus': 'Strength, Instinct, Covert',
+            'Professor X': 'Ranged, Instinct, Covert', 'Rogue': 'Strength, Covert', 'Ruby Summers': 'Strength, Ranged', 'Soulsword Colossus': 'Strength, Instinct, Covert',
             'Storm': 'Ranged, Covert', 'Time-Traveling Jean Grey': 'Ranged, Instinct, Covert', 'Wolverine (Core)': 'Instinct'}
 
 # #Function to pick a hero

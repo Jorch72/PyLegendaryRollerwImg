@@ -122,6 +122,7 @@ def index():
             #Picks Four default heros
             samples = random.sample(pick_hero(), 5)
             hero_1, hero_1_att = samples[0]
+            splitter1 = hero_1_att.split()
             hero_2, hero_2_att = samples[1]
             hero_3, hero_3_att = samples[2]
             hero_4, hero_4_att = samples[3]
@@ -129,7 +130,7 @@ def index():
             # #If more than 2 players and scheme is Super hero Civil War picks another hero
             hero5_text = 'The fifth hero is:'
             if int(num_play) == 2 and pick_scheme == 'Super Hero Civil War':
-                hero_5, hero_5_att = ssamples[4]
+                hero_5, hero_5_att = samples[4]
             else:
                 hero_5 = None
                 hero_5_att = None

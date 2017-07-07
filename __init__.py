@@ -2,7 +2,9 @@ from flask import Flask, render_template, request, url_for, redirect, session, s
 import random
 from flask_wtf import Form, FlaskForm
 from wtforms import Form, TextField, BooleanField, validators, PasswordField, SelectField, SubmitField
-#Imports from local files
+#Imports from local files w/o sys imports will fail
+import sys
+sys.path.append("/var/www/FlaskApp/FlaskApp")
 from goodies import pick_hero
 from schemes import schemes
 from baddies import masterminds, henchmen, villains
